@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Mistral-7B Chatbot</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(120deg, #eef2f3, #cfd9df);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .chat-wrapper {
+      background-color: #fff;
+      width: 90%;
+      max-width: 750px;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      text-align: center;
+      color: #222;
+      font-size: 28px;
+      margin-bottom: 25px;
+      font-weight: 600;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+      padding: 16px;
+      font-size: 15px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    textarea:focus {
+      border-color: #007aff;
+    }
+
+    input[type="submit"] {
+      margin-top: 20px;
+      padding: 14px 22px;
+      font-size: 16px;
+      border: none;
+      background-color: #007aff;
+      color: #fff;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #005ecb;
+    }
+
+    .response {
+      margin-top: 30px;
+      background-color: #f8f9fa;
+      padding: 24px;
+      border-radius: 12px;
+      border-left: 5px solid #007aff;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .response h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #007aff;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .response p {
+      margin: 0;
+      color: #333;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-wrapper">
+    <h1>🧠 Mistral-7B Chatbot</h1>
+    <form method="POST">
+      <textarea name="prompt" placeholder="Nhập câu hỏi của bạn tại đây...">{{ prompt }}</textarea>
+      <input type="submit" value="Gửi câu hỏi">
+    </form>
+    {% if response %}
+    <div class="response">
+      <h3>Kết quả từ Mistral-7B:</h3>
+      <p>{{ response }}</p>
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>
